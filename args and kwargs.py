@@ -1,0 +1,53 @@
+# -*- coding: cp1250 -*-
+__author__ = 'Piotr'
+import doctest
+import unittest
+
+def test_var_args(f_arg, *argv, **kwargs):
+    print "first normal arg:", f_arg
+    for arg in argv:
+        print ("another arg through *argv :", arg)
+
+    if kwargs is not None:
+        for keys, values in kwargs.iteritems():
+            print(keys,values)
+print(test_var_args('1','2','3',a='n'))
+
+
+
+def test_args_kwargs(arg1, arg2, arg3):
+    print "arg1 or kwargs1:", arg1
+    print "arg2 or kwargs2:", arg2
+    print "arg3 or kwargs3:", arg3
+
+args = 1,2,3
+test_args_kwargs (*args)
+    
+kwargs = {"arg3": 3, "arg2": "two","arg1":5}
+
+test_args_kwargs(**kwargs)
+
+#podsumowuj¹c argi i kwargi mo¿na u¿ywaæ w deklaracji funkcji lub przy wywo³ywaniu
+
+# przy deklaracji args - mo¿emy do funkcji wrzuciæ dowoln¹ iloœæ
+# elementów nie bêd¹cych s³ownikiem
+
+# przy deklaracji kwargs - mo¿emy do funkcji wrzuciæ dowoln¹ iloœæ
+# s³owników - kluczy i values
+
+# jesli u¿ywamy *parameter to potem odwo³ujemy siê do wszystkich elementów
+# przez pêtle
+
+# jeœli u¿ywamy **parametr to potem sprawdzamy czy parameter nie jest pusty
+# jeœli nie, wykonujemy pêtle for k,v in  parametr.iteritems()
+# i uzyskujemy dostêp do kluczy i wartosci :)
+
+# jesli uzywamy przy wywo³ywaniu funkcji to w celu pó¿niejszego
+# wrzucenia jednej zmiennej (**klucz/wartosc i *wartosciNieDicty)
+# do funkcji która robi za to wszystko np:
+# args = 1,2,3
+# a(*args)
+
+# skrótowo przy wywo³ywaniu - szybsze ³adowanie wielu elementów
+
+# przy defincji mo¿liwoœæ ³adowania wielu elementów **dictów lub *pozosta³ych
